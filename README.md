@@ -23,6 +23,17 @@ for (i=0; i &lt; thecookies.length;i++){
 }
 </pre>
 
+Then, embed the player. One note here is that you must set the player's primary option to the variable we created in the first step (called primary), as that is what the script is looking for whe the toggle button is pressed:
+
+<pre>
+jwplayer(&quot;player&quot;).setup({
+	file: 'http://content.bitsontherun.com/videos/bkaovAYt-injeKYZS.mp4',
+	image: 'http://content.bitsontherun.com/thumbs/bkaovAYt-480.jpg',
+	title: 'Big Buck Bunny',
+	primary: primary
+});
+</pre>
+
 Then, after your JW Player embed instace, this is needed as well:
 
 <pre>
