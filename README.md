@@ -23,7 +23,7 @@ for (i=0; i &lt; thecookies.length;i++){
 }
 </pre>
 
-Then, embed the player. One note here is that you must set the player's primary option to the variable we created in the first step (called primary), as that is what the script is looking for whe the toggle button is pressed:
+Then, embed the player. One note here is that you must set the player's primary option to the variable we created in the first step (called primary), as that is what the script is looking for whe then toggle button is pressed:
 
 <pre>
 jwplayer(&quot;player&quot;).setup({
