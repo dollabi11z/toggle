@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toggle</title>
+    <script type="text/javascript" src="http://p.jwpcdn.com/6/8/jwplayer.js"></script>
+</head>
+<style type="text/css">
+	body { 
+		margin: 0; 
+		padding: 0; 
+	}
+</style>
+<body>
+<div id="player"></div>
+<script type="text/javascript">
+var primary = 'html5';
+var thecookies = document.cookie.split(";");
+for (i=0; i < thecookies.length;i++){
+	var x = thecookies[i].substr(0,thecookies[i].indexOf("="));
+	var y = thecookies[i].substr(thecookies[i].indexOf("=")+1);
+	x = x.replace(/^\s+|\s+$/g,"");
+	if (x == 'primary') {
+		primary = y;
+	}
+}
+jwplayer("player").setup({
+	file: 'http://content.bitsontherun.com/videos/bkaovAYt-injeKYZS.mp4',
+	image: 'http://content.bitsontherun.com/thumbs/bkaovAYt-480.jpg',
+	title: 'Big Buck Bunny',
+	primary: primary
+});
+jwplayer().onReady(function(){
+	if(jwplayer().getRenderingMode() == "flash"){
+		this.addButton("html5.png", "Switch to HTML5", switchIt, "button1");
+	} else {
+		this.addButton("flash.png", "Switch to Flash", switchIt, "button1");
+	}
+});
+function switchIt(){
+	primary == 'html5' ? primary = 'flash': primary = 'html5';
+	document.cookie = "primary=" + primary;
+	window.location.reload();
+};
+</script>
+</body>
+</html>
